@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "f10edb16-b8e6-0310-952f-8ec78df1de6a++9674",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "f10edb16-b8e6-0310-952f-8ec78df1de6a++9674" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "f10edb16-b8e6-0310-952f-8ec78df1de6a++9674" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F5DF9356-1D8E-4461-91AD-69861D0D86FA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "f10edb16-b8e6-0310-952f-8ec78df1de6a++9674" : "ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "springboard",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Libraries\/JxCollectionView\/springboard.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/svn.abacus.ch\/repos\/abacus",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "f10edb16-b8e6-0310-952f-8ec78df1de6a++9674"
+    }
+  ]
+}
