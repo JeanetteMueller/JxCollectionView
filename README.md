@@ -1,7 +1,7 @@
 # JxCollectionView
 
-iOS Springboard Nachbar mit Paging und Drag&Drop.
-Außerdem wackeln die Elemente und bieten einen Button zum Löschen des Elements.
+iOS Springboard Nachbau mit Paging und Drag&Drop.
+Außerdem wackeln die Elemente und bieten jeweils einen Button zum Löschen des Elements.
 
 Das JxCollectionView verhällt sich von außen gesehen sehr ähnlich wie ein übliches UICollectionView, kommt allerdings mit ein paar zusätzlichen Delegates. 
 
@@ -31,14 +31,13 @@ Die Delegates wie üblich beim UICollectionView anlegen
     
     NSInteger sectionCount = _sections.count;
     
-    DLog(@"%ld sections", sectionCount);
+    NSLog(@"%ld sections", sectionCount);
     return sectionCount;
 }
 
 - (NSInteger)collectionView:(JxCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
     NSArray *items = [_sections objectAtIndex:section];
-    
     return items.count;
 }
 
@@ -66,6 +65,28 @@ Wenn per Drag & Drop ein Element auf eine neue Seite geschoben wird, egal ob dur
     [_sections addObject:[NSMutableArray array]];
 }
 ```
+# Delegate
+```
+- (BOOL)collectionViewShouldStartDragging:(JxCollectionView *)collectionView{
+    NSLog(@„collectionViewShouldStartDragging“);
+    return YES;
+}
+- (void)collectionViewDidStartDragging:(JxCollectionView *)collectionView{
+    NSLog(@„collectionViewDidStartDragging“);
+}
+- (void)collectionViewDidEndDragging:(JxCollectionView *)collectionView{
+    NSLog(@„collectionViewDidEndDragging“);
+}
+- (void)collectionView:(JxCollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@„didSelectItemAtIndexPath“);
+}
+- (void)collectionView:(JxCollectionView *)collectionView willChangePageFrom:(NSInteger)oldPageIndex to:(NSInteger)newPageIndex{
+    NSLog(@„will move from %ld to %ld“, oldPageIndex, newPageIndex);
+}
+- (void)collectionView:(JxCollectionView *)collectionView didChangePageFrom:(NSInteger)oldPageIndex to:(NSInteger)newPageIndex{
+    NSLog(@„did move from %ld to %ld“, oldPageIndex, newPageIndex);
+}
+```
 # Aktionen
 
 Bearbeitungsmodus aktivieren
@@ -74,6 +95,7 @@ Bearbeitungsmodus aktivieren
 ```
 
 ## Drag & Drop 
+Wenn bestimmte Einträge an bestimmten IndexPath Koordinaten nicht verschoben werden dürfen, kann dies hier festgelegt werden.
 ```
 - (BOOL)collectionView:(JxCollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -83,6 +105,9 @@ Bearbeitungsmodus aktivieren
 //    }
     return YES;
 }
+```
+
+```
 - (void)collectionView:(JxCollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
     NSMutableArray *sourceSection = [_sections objectAtIndex:sourceIndexPath.section];
     
@@ -110,7 +135,7 @@ Bearbeitungsmodus aktivieren
 ```
 
 ## Löschen
-Wenn bestimmte Einträge an bestimmten Indexpath Koordinaten nicht gelöscht werden dürfen, kann dies hier hinterlegt werden.
+Wenn bestimmte Einträge an bestimmten IndexPath Koordinaten nicht gelöscht werden dürfen, kann dies hier festgelegt werden.
 ```
 - (BOOL)collectionView:(JxCollectionView *)collectionView canDeleteItemAtIndexPath:(NSIndexPath *)indexPath{
     /*    you may dont want to delete one or more elements so you can avoid this here */
@@ -135,25 +160,4 @@ Wenn bestimmte Einträge an bestimmten Indexpath Koordinaten nicht gelöscht wer
 }
 ```
 
-## Delegate
-```
-- (BOOL)collectionViewShouldStartDragging:(JxCollectionView *)collectionView{
-    NSLog(@"collectionViewShouldStartDragging");
-    return YES;
-}
-- (void)collectionViewDidStartDragging:(JxCollectionView *)collectionView{
-    NSLog(@"collectionViewDidStartDragging");
-}
-- (void)collectionViewDidEndDragging:(JxCollectionView *)collectionView{
-    NSLog(@"collectionViewDidEndDragging");
-}
-- (void)collectionView:(JxCollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"didSelectItemAtIndexPath");
-}
-- (void)collectionView:(JxCollectionView *)collectionView willChangePageFrom:(NSInteger)oldPageIndex to:(NSInteger)newPageIndex{
-    NSLog(@"move from %ld to %ld", oldPageIndex, newPageIndex);
-}
-- (void)collectionView:(JxCollectionView *)collectionView didChangePageFrom:(NSInteger)oldPageIndex to:(NSInteger)newPageIndex{
-    NSLog(@"move from %ld to %ld", oldPageIndex, newPageIndex);
-}
-```
+
