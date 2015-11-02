@@ -76,11 +76,7 @@
 
 @protocol PagedCollectionViewControllerDataSource <NSObject>
 
-- (void)collectionView:(JxCollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 
-- (BOOL)collectionViewShouldStartDragging:(JxCollectionView *)collectionView;
-- (void)collectionViewDidStartDragging:(JxCollectionView*) collectionView;
-- (void)collectionViewDidEndDragging:(JxCollectionView *)collectionView;
 
 @required
 - (NSInteger)numberOfSectionsInCollectionView:(JxCollectionView *)collectionView;
@@ -100,6 +96,12 @@
 
 
 @protocol PagedCollectionViewControllerDelegate <NSObject>
+
+- (void)collectionView:(JxCollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+
+- (BOOL)collectionViewShouldStartDragging:(JxCollectionView *)collectionView;
+- (void)collectionViewDidStartDragging:(JxCollectionView*) collectionView;
+- (void)collectionViewDidEndDragging:(JxCollectionView *)collectionView;
 
 - (void)collectionView:(JxCollectionView *)collectionView willChangePageFrom:(NSInteger)oldPageIndex to:(NSInteger)newPageIndex;
 - (void)collectionView:(JxCollectionView *)collectionView didChangePageFrom:(NSInteger)oldPageIndex to:(NSInteger)newPageIndex;

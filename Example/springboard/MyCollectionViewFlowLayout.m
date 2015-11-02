@@ -15,7 +15,7 @@
     
     if (self) {
         
-        CGFloat itemsPerRow = 2;
+        CGFloat itemsPerRow = 3;
         
         CGFloat borders = 10.0f;
         
