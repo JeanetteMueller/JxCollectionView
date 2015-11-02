@@ -182,8 +182,6 @@
 }
 
 - (IBAction)deleteCellAction:(UIButton *)sender{
-    NSLog((@">>> %s [Line %d] "), __PRETTY_FUNCTION__, __LINE__);
-    
     NSIndexPath *path = [self.collectionView indexPathForCell:(UICollectionViewCell *)sender.superview];
     
     [self.delegate deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:path.item inSection:_sectionIndex]]];

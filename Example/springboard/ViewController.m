@@ -87,7 +87,6 @@
 }
 
 - (UICollectionViewCell *)collectionView:(JxCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog((@">>> %s [Line %d] "), __PRETTY_FUNCTION__, __LINE__);
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:[NSIndexPath indexPathForItem:indexPath.item inSection:0]];
     
     
@@ -112,7 +111,6 @@
     return YES;
 }
 - (void)collectionView:(JxCollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
-    NSLog((@">>> %s [Line %d] "), __PRETTY_FUNCTION__, __LINE__);
     NSMutableArray *sourceSection = [_sections objectAtIndex:sourceIndexPath.section];
     
     id original = [sourceSection objectAtIndex:sourceIndexPath.item];
@@ -144,7 +142,6 @@
     return YES;
 }
 - (void)collectionView:(JxCollectionView *)collectionView deleteItemsAtIndexPaths:(NSArray *)indexPaths{
-    NSLog((@">>> %s [Line %d] "), __PRETTY_FUNCTION__, __LINE__);
     NSArray *sorted = [indexPaths sortedArrayUsingDescriptors:@[
                                                                 [NSSortDescriptor sortDescriptorWithKey:@"section" ascending:NO],
                                                                 [NSSortDescriptor sortDescriptorWithKey:@"item" ascending:NO]
@@ -172,10 +169,10 @@
     
 }
 - (void)collectionView:(JxCollectionView *)collectionView willChangePageFrom:(NSInteger)oldPageIndex to:(NSInteger)newPageIndex{
-    NSLog(@"move from %ld to %ld", oldPageIndex, newPageIndex);
+    NSLog(@"will move from %ld to %ld", oldPageIndex, newPageIndex);
 }
 - (void)collectionView:(JxCollectionView *)collectionView didChangePageFrom:(NSInteger)oldPageIndex to:(NSInteger)newPageIndex{
-    NSLog(@"move from %ld to %ld", oldPageIndex, newPageIndex);
+    NSLog(@"did move from %ld to %ld", oldPageIndex, newPageIndex);
 }
 - (void)addSection{
 
