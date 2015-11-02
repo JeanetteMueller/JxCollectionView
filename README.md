@@ -110,7 +110,7 @@ Bearbeitungsmodus aktivieren
 ```
 
 ## Löschen
-
+Wenn bestimmte Einträge an bestimmten Indexpath Koordinaten nicht gelöscht werden dürfen, kann dies hier hinterlegt werden.
 ```
 - (BOOL)collectionView:(JxCollectionView *)collectionView canDeleteItemAtIndexPath:(NSIndexPath *)indexPath{
     /*    you may dont want to delete one or more elements so you can avoid this here */
@@ -119,6 +119,9 @@ Bearbeitungsmodus aktivieren
 //    }
     return YES;
 }
+```
+
+```
 - (void)collectionView:(JxCollectionView *)collectionView deleteItemsAtIndexPaths:(NSArray *)indexPaths{
     NSArray *sorted = [indexPaths sortedArrayUsingDescriptors:@[
                                                                 [NSSortDescriptor sortDescriptorWithKey:@"section" ascending:NO],
