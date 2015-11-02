@@ -6,27 +6,27 @@ Außerdem wackeln die Elemente und bieten jeweils einen Button zum Löschen des 
 Das JxCollectionView verhällt sich von außen gesehen sehr ähnlich wie ein übliches UICollectionView, kommt allerdings mit ein paar zusätzlichen Delegates. 
 
 Im View Controller mitt das JxCollectionView angelegt werden. Hier muss das Layout und die maximale ANzahl an Elementen Pro Seite festgelegt werden
-```
+```Objective-C
 self.pagedCollectionViewController = [[JxCollectionView alloc] initWithLayoutClass:[MyCollectionViewFlowLayout class] andItemCount:6];
 self.pagedCollectionViewController.dataSource = self;
 self.pagedCollectionViewController.delegate = self;
 ```
 
 Danach müssen alle Klassen und Nibs registriert werden
-```
+```Objective-C
 [self.pagedCollectionViewController registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
 [self.pagedCollectionViewController registerNib:[UINib nibWithNibName:@"MyCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"Cell"];
 ```
 
 Danach kann das JxCollectionView in den aktuellen View eingefügt werden. Das setzen der Hintergrundfarbe wäre an dieser Stelle auch Hilfreich.
-```
+```Objective-C
 [self.view addSubview:_pagedCollectionViewController];
 [self.pagedCollectionViewController setBackgroundColor:[UIColor whiteColor]];
 ```
 
 # DataSource
 Die Delegates wie üblich beim UICollectionView anlegen
-```
+```Objective-C
 - (NSInteger)numberOfSectionsInCollectionView:(JxCollectionView *)collectionView {
     
     NSInteger sectionCount = _sections.count;
@@ -60,13 +60,13 @@ UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentif
 ```
 
 Wenn per Drag & Drop ein Element auf eine neue Seite geschoben wird, egal ob durch das Dragging oder weil die maximale Anzahl der Einträge auf der vorherigen Seite überschritten wurde, wud automatisch eine neue Sektion angelegt. 
-```
+```Objective-C
 - (void)addSection{
     [_sections addObject:[NSMutableArray array]];
 }
 ```
 # Delegate
-```
+```Objective-C
 - (BOOL)collectionViewShouldStartDragging:(JxCollectionView *)collectionView{
     NSLog(@„collectionViewShouldStartDragging“);
     return YES;
@@ -90,13 +90,13 @@ Wenn per Drag & Drop ein Element auf eine neue Seite geschoben wird, egal ob dur
 # Aktionen
 
 Bearbeitungsmodus aktivieren
-```
+```Objective-C
 [self.pagedCollectionViewController setEditing:!self.pagedCollectionViewController.editing];
 ```
 
 ## Drag & Drop 
 Wenn bestimmte Einträge an bestimmten IndexPath Koordinaten nicht verschoben werden dürfen, kann dies hier festgelegt werden.
-```
+```Objective-C
 - (BOOL)collectionView:(JxCollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath{
     
     /*    you may dont want to move one or more elements so you can avoid this here */
@@ -107,7 +107,7 @@ Wenn bestimmte Einträge an bestimmten IndexPath Koordinaten nicht verschoben we
 }
 ```
 
-```
+```Objective-C
 - (void)collectionView:(JxCollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
     NSMutableArray *sourceSection = [_sections objectAtIndex:sourceIndexPath.section];
     
@@ -136,7 +136,7 @@ Wenn bestimmte Einträge an bestimmten IndexPath Koordinaten nicht verschoben we
 
 ## Löschen
 Wenn bestimmte Einträge an bestimmten IndexPath Koordinaten nicht gelöscht werden dürfen, kann dies hier festgelegt werden.
-```
+```Objective-C
 - (BOOL)collectionView:(JxCollectionView *)collectionView canDeleteItemAtIndexPath:(NSIndexPath *)indexPath{
     /*    you may dont want to delete one or more elements so you can avoid this here */
 //    if (indexPath.section == 0 && indexPath.item == 2) {
@@ -146,7 +146,7 @@ Wenn bestimmte Einträge an bestimmten IndexPath Koordinaten nicht gelöscht wer
 }
 ```
 
-```
+```Objective-C
 - (void)collectionView:(JxCollectionView *)collectionView deleteItemsAtIndexPaths:(NSArray *)indexPaths{
     NSArray *sorted = [indexPaths sortedArrayUsingDescriptors:@[
                                                                 [NSSortDescriptor sortDescriptorWithKey:@"section" ascending:NO],
