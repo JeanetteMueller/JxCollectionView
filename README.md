@@ -3,6 +3,8 @@
 iOS Springboard Nachbau mit Paging und Drag&Drop.
 Außerdem wackeln die Elemente und bieten jeweils einen Button zum Löschen des Elements.
 
+<img src="https://github.com/JeanetteMueller/JxCollectionView/blob/master/Screenshots/screenshot_1.png" align="left" height="500" width="320" >
+
 Das JxCollectionView verhällt sich von außen gesehen sehr ähnlich wie ein übliches UICollectionView, kommt allerdings mit ein paar zusätzlichen Delegates. 
 
 Im View Controller mitt das JxCollectionView angelegt werden. Hier muss das Layout und die maximale ANzahl an Elementen Pro Seite festgelegt werden
