@@ -90,7 +90,6 @@
     
     if (![cell.reuseIdentifier isEqualToString:kPagedCollectionViewDummyCell]) {
         
-        LLog();
         [self.delegate collectionView:self didSelectItemAtIndexPath:indexPath];
     }
 }
@@ -142,8 +141,6 @@
     [cell.layer addAnimation:animation forKey:@"JxCollectionViewWiggleAnimation"];
 }
 - (void)stopWigglingOnCell:(UICollectionViewCell *)cell{
-    
-    DLog(@"cell.layer.animationKeys %@", cell.layer.animationKeys);
     
     [cell.layer removeAnimationForKey:@"JxCollectionViewWiggleAnimation"];
 }

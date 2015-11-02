@@ -76,7 +76,6 @@
     
     NSInteger sectionCount = _sections.count;
     
-    DLog(@"%ld sections", sectionCount);
     return sectionCount;
 }
 
@@ -161,26 +160,25 @@
     
 }
 - (BOOL)collectionViewShouldStartDragging:(JxCollectionView *)collectionView{
-    LLog();
     return YES;
 }
 - (void)collectionViewDidStartDragging:(JxCollectionView *)collectionView{
     
 }
 - (void)collectionViewDidEndDragging:(JxCollectionView *)collectionView{
-    LLog();
+    
 }
 - (void)collectionView:(JxCollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    LLog();
+    
 }
 - (void)collectionView:(JxCollectionView *)collectionView willChangePageFrom:(NSInteger)oldPageIndex to:(NSInteger)newPageIndex{
-    DLog(@"move from %ld to %ld", oldPageIndex, newPageIndex);
+    NSLog(@"move from %ld to %ld", oldPageIndex, newPageIndex);
 }
 - (void)collectionView:(JxCollectionView *)collectionView didChangePageFrom:(NSInteger)oldPageIndex to:(NSInteger)newPageIndex{
-    DLog(@"move from %ld to %ld", oldPageIndex, newPageIndex);
+    NSLog(@"move from %ld to %ld", oldPageIndex, newPageIndex);
 }
 - (void)addSection{
-    LLog();
+
     [_sections addObject:[NSMutableArray array]];
 }
 
