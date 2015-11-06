@@ -8,8 +8,6 @@
 
 #import "JxCollectionView.h"
 #import "JxCollectionViewPage.h"
-#import "MyCollectionViewFlowLayout.h"
-
 
 
 @interface JxCollectionView () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>

@@ -26,6 +26,7 @@
         self.minimumLineSpacing = borders;
         self.scrollDirection = UICollectionViewScrollDirectionVertical;
         self.sectionInset = UIEdgeInsetsMake(borders, borders, borders, borders);
+        
     }
     return self;
 }
