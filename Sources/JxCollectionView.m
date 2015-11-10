@@ -108,8 +108,7 @@
     
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-    LLog();
-    
+
     if ([keyPath isEqualToString:@"backgroundColor"]) {
         UIColor *newColor = [object valueForKeyPath:keyPath];
         
@@ -128,8 +127,7 @@
     return YES;
 }
 - (void)tapAction:(UITapGestureRecognizer *)sender{
-    LLog();
-    
+
     if (_editing) {
         
         JxCollectionViewPage *page = [self currentPage];
@@ -160,8 +158,6 @@
     
     JxCollectionViewPage *page = [self currentPage];
     
-    DLog(@"page index %ld", (long)page.sectionIndex);
-    
     CGPoint point = [sender locationInView:page.collectionView];
     
     if (sender.state != UIGestureRecognizerStateChanged) {
@@ -173,7 +169,6 @@
         
         switch (sender.state) {
             case UIGestureRecognizerStateBegan:{
-                LLog();
                 
                 if (![self.dataSource collectionViewShouldStartDragging:self] && !_editing) {
                     return;
@@ -220,7 +215,6 @@
                 
             }break;
             case UIGestureRecognizerStateChanged:{
-                LLog();
                 if (_holdIndexPath) {
                     
                     if (_dragView) {
@@ -273,13 +267,12 @@
                                                              completion:^(BOOL finished) {
                                                                  __strong __typeof(weakSelf)strongSelf = weakSelf;
                                                                   if(finished){
-                                                                      LLog();
+                                                                      
                                                                       strongSelf.nextPage = NSNotFound;
                                                                       
                                                                       NSInteger oldIndex = strongSelf.pageControl.currentPage;
                                                                       
                                                                       strongSelf.pageControl.currentPage = newIndex;
-                                                                      DLog(@"------------------ currentIndex %ld", strongSelf.pageControl.currentPage);
                                                                       
                                                                       if ([strongSelf.delegate respondsToSelector:@selector(collectionView:didChangePageFrom:to:)]) {
                                                                           [strongSelf.delegate collectionView:strongSelf didChangePageFrom:oldIndex to:newIndex];
@@ -369,8 +362,6 @@
             case UIGestureRecognizerStateFailed:
             case UIGestureRecognizerStateCancelled:{
                 
-                DLog(@"page %ld und _holdIndexPath.item %ld", page.sectionIndex, _holdIndexPath.item);
-                
                 _holdIndexPath = nil;
                 
                 if (_editing) {
@@ -388,7 +379,6 @@
 #pragma mark UIPageViewController
 
 - (JxCollectionViewPage *)getPageForIndex:(NSInteger)index{
-    LLog();
     
     if (_pages.count > index && [_pages objectAtIndex:index]) {
         return [_pages objectAtIndex:index];
@@ -422,14 +412,12 @@
     return nil;
 }
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(JxCollectionViewPage *)viewController{
-    LLog();
     if (viewController.sectionIndex > 0) {
         return [self getPageForIndex:viewController.sectionIndex-1];
     }
     return nil;
 }
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(JxCollectionViewPage *)viewController{
-    LLog();
     if ([self.dataSource numberOfSectionsInCollectionView:self]-1 > viewController.sectionIndex) {
         return [self getPageForIndex:viewController.sectionIndex+1];
     }
@@ -439,7 +427,6 @@
     return [self.dataSource numberOfSectionsInCollectionView:self];
 }
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController{
-    DLog(@"------------------ currentIndex %ld", self.pageControl.currentPage);
     
     return self.pageControl.currentPage;
 }
@@ -461,12 +448,11 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed{
 
     if(completed){
-        LLog();
+        
         NSInteger oldIndex = [(JxCollectionViewPage *)[previousViewControllers firstObject] sectionIndex];
         
         
         self.pageControl.currentPage = _nextPage;
-        DLog(@"------------------ currentIndex %ld", self.pageControl.currentPage);
         _animating = NO;
         
         if ([self.delegate respondsToSelector:@selector(collectionView:didChangePageFrom:to:)]) {
@@ -485,7 +471,7 @@
     return self.maximumItemCount;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    LLog();
+
     NSInteger itemCount = [self.dataSource collectionView:self numberOfItemsInSection:indexPath.section];
     if (itemCount > self.maximumItemCount) {
         itemCount = self.maximumItemCount;
@@ -503,7 +489,7 @@
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
-    LLog();
+
     NSInteger sourceItemCount = [self.dataSource collectionView:self numberOfItemsInSection:sourceIndexPath.section];
     if (sourceItemCount > self.maximumItemCount) {
         sourceItemCount = self.maximumItemCount;
@@ -563,7 +549,6 @@
     return [self.dataSource collectionView:self canDeleteItemAtIndexPath:[NSIndexPath indexPathForItem:indexPath.item inSection:page.sectionIndex]];
 }
 - (void)collectionView:(JxCollectionViewPage *)page didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    LLog();
     return [self.dataSource collectionView:self didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:indexPath.item inSection:page.sectionIndex]];
 }
 #pragma mark CollectionView Methods
@@ -572,8 +557,6 @@
     _editing = edit;
     
     self.tapGesture.enabled = _editing;
-    
-    DLog(@"editing %d", _editing);
     
     if (_editing) {
         self.longPressGesture.minimumPressDuration = 0.15;
@@ -686,8 +669,6 @@
         if (idx == self.pageControl.currentPage && self.pageControl.currentPage > 0) {
             
             self.pageControl.currentPage--;
-            DLog(@"------------------ currentIndex %ld", self.pageControl.currentPage);
-            
         }
     }];
     
@@ -715,9 +696,7 @@
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         
         for (NSIndexPath *path in indexPaths) {
-            
-            DLog(@"path %@", path);
-            
+             
             if (path.section == page.sectionIndex) {
                 
                 [page.collectionView performBatchUpdates:^{
@@ -735,14 +714,12 @@
     }];
 }
 - (void)deleteItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths{
-    LLog();
     [self.dataSource collectionView:self deleteItemsAtIndexPaths:indexPaths];
     
     __weak __typeof(self)weakSelf = self;
     [self.pageViewController.viewControllers enumerateObjectsUsingBlock:^(JxCollectionViewPage *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         
-        LLog();
         NSMutableArray *resetIndexPaths = [NSMutableArray array];
         NSMutableArray *insertArray = [NSMutableArray array];
         
@@ -814,7 +791,6 @@
     }
 }
 - (UICollectionViewCell *)dequeueReusableCellWithReuseIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
-    LLog();
     for (JxCollectionViewPage *vc in self.pageViewController.viewControllers) {
         if (vc.sectionIndex == indexPath.section) {
             return [vc.collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:[NSIndexPath indexPathForItem:indexPath.item inSection:0]];
@@ -849,8 +825,7 @@
         
         strongSelf.pageControl.currentPage = index;
         strongSelf.pageControl.numberOfPages = [strongSelf.dataSource numberOfSectionsInCollectionView:strongSelf];
-        DLog(@"------------------ currentIndex %ld von %ld",strongSelf.pageControl.currentPage, strongSelf.pageControl.numberOfPages);
-        
+
         
     }];
 }

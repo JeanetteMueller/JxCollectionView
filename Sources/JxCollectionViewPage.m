@@ -90,7 +90,6 @@
     
     if (![cell.reuseIdentifier isEqualToString:kPagedCollectionViewDummyCell]) {
         
-        LLog();
         [self.delegate collectionView:self didSelectItemAtIndexPath:indexPath];
     }
 }
@@ -143,8 +142,6 @@
 }
 - (void)stopWigglingOnCell:(UICollectionViewCell *)cell{
     
-    DLog(@"cell.layer.animationKeys %@", cell.layer.animationKeys);
-    
     [cell.layer removeAnimationForKey:@"JxCollectionViewWiggleAnimation"];
 }
 
@@ -178,15 +175,12 @@
     cell.clipsToBounds = NO;
 }
 - (void)removeDeleteButtonFromCell:(UICollectionViewCell *)cell{
-    
     UIButton *deleteButton = (UIButton *)[cell viewWithTag:887400];
     
     [deleteButton removeFromSuperview];
 }
 
 - (IBAction)deleteCellAction:(UIButton *)sender{
-    NSLog((@">>> %s [Line %d] "), __PRETTY_FUNCTION__, __LINE__);
-    
     NSIndexPath *path = [self.collectionView indexPathForCell:(UICollectionViewCell *)sender.superview];
     
     [self.delegate deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:path.item inSection:_sectionIndex]]];

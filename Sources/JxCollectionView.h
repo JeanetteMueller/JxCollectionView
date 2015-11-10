@@ -8,12 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#ifndef LLog
-
-#define DLog(fmt, ...)                               NSLog((@">>> %s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
-#define LLog()                                       NSLog((@">>> %s [Line %d] "), __PRETTY_FUNCTION__, __LINE__)
-
-#endif
 
 @protocol PagedCollectionViewControllerDelegate, PagedCollectionViewControllerDataSource;
 
