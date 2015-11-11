@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		266C62931BE3C249005894B3 /* JxCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C62901BE3C249005894B3 /* JxCollectionView.m */; };
-		266C62941BE3C249005894B3 /* JxCollectionViewPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C62921BE3C249005894B3 /* JxCollectionViewPage.m */; };
 		269FC9451BA995B000C88207 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 269FC9441BA995B000C88207 /* main.m */; };
 		269FC9481BA995B000C88207 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 269FC9471BA995B000C88207 /* AppDelegate.m */; };
 		269FC94E1BA995B000C88207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269FC94C1BA995B000C88207 /* Main.storyboard */; };
@@ -17,13 +15,11 @@
 		269FC9671BA9B04400C88207 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269FC9661BA9B04400C88207 /* ViewController.m */; };
 		269FC9701BA9B7B200C88207 /* MyCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 269FC96F1BA9B7B200C88207 /* MyCollectionViewFlowLayout.m */; };
 		269FC9721BA9B87000C88207 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269FC9711BA9B87000C88207 /* MyCollectionViewCell.xib */; };
+		26FF3ED31BF32BAD00BCABCC /* JxCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF3ED01BF32BAD00BCABCC /* JxCollectionView.m */; };
+		26FF3ED41BF32BAD00BCABCC /* JxCollectionViewPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF3ED21BF32BAD00BCABCC /* JxCollectionViewPage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		266C628F1BE3C249005894B3 /* JxCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JxCollectionView.h; sourceTree = "<group>"; };
-		266C62901BE3C249005894B3 /* JxCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JxCollectionView.m; sourceTree = "<group>"; };
-		266C62911BE3C249005894B3 /* JxCollectionViewPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JxCollectionViewPage.h; sourceTree = "<group>"; };
-		266C62921BE3C249005894B3 /* JxCollectionViewPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JxCollectionViewPage.m; sourceTree = "<group>"; };
 		269FC9401BA995B000C88207 /* springboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = springboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		269FC9441BA995B000C88207 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		269FC9461BA995B000C88207 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -37,6 +33,10 @@
 		269FC96E1BA9B7B200C88207 /* MyCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		269FC96F1BA9B7B200C88207 /* MyCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		269FC9711BA9B87000C88207 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		26FF3ECF1BF32BAD00BCABCC /* JxCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JxCollectionView.h; sourceTree = "<group>"; };
+		26FF3ED01BF32BAD00BCABCC /* JxCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JxCollectionView.m; sourceTree = "<group>"; };
+		26FF3ED11BF32BAD00BCABCC /* JxCollectionViewPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JxCollectionViewPage.h; sourceTree = "<group>"; };
+		26FF3ED21BF32BAD00BCABCC /* JxCollectionViewPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JxCollectionViewPage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,21 +50,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		266C628E1BE3C23E005894B3 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				266C628F1BE3C249005894B3 /* JxCollectionView.h */,
-				266C62901BE3C249005894B3 /* JxCollectionView.m */,
-				266C62911BE3C249005894B3 /* JxCollectionViewPage.h */,
-				266C62921BE3C249005894B3 /* JxCollectionViewPage.m */,
-			);
-			name = Sources;
-			sourceTree = "<group>";
-		};
 		269FC9371BA995B000C88207 = {
 			isa = PBXGroup;
 			children = (
-				266C628E1BE3C23E005894B3 /* Sources */,
+				26FF3ECE1BF32BAD00BCABCC /* Sources */,
 				269FC9421BA995B000C88207 /* springboard */,
 				269FC9411BA995B000C88207 /* Products */,
 			);
@@ -103,6 +92,18 @@
 				269FC9441BA995B000C88207 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		26FF3ECE1BF32BAD00BCABCC /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				26FF3ECF1BF32BAD00BCABCC /* JxCollectionView.h */,
+				26FF3ED01BF32BAD00BCABCC /* JxCollectionView.m */,
+				26FF3ED11BF32BAD00BCABCC /* JxCollectionViewPage.h */,
+				26FF3ED21BF32BAD00BCABCC /* JxCollectionViewPage.m */,
+			);
+			name = Sources;
+			path = ../Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,8 +178,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				269FC9701BA9B7B200C88207 /* MyCollectionViewFlowLayout.m in Sources */,
-				266C62941BE3C249005894B3 /* JxCollectionViewPage.m in Sources */,
-				266C62931BE3C249005894B3 /* JxCollectionView.m in Sources */,
+				26FF3ED41BF32BAD00BCABCC /* JxCollectionViewPage.m in Sources */,
+				26FF3ED31BF32BAD00BCABCC /* JxCollectionView.m in Sources */,
 				269FC9481BA995B000C88207 /* AppDelegate.m in Sources */,
 				269FC9451BA995B000C88207 /* main.m in Sources */,
 				269FC9671BA9B04400C88207 /* ViewController.m in Sources */,
