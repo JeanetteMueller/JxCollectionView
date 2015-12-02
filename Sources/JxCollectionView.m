@@ -169,6 +169,7 @@
         
         switch (sender.state) {
             case UIGestureRecognizerStateBegan:{
+                self.pageViewController.view.userInteractionEnabled = NO;
                 
                 if (![self.dataSource collectionViewShouldStartDragging:self] && !_editing) {
                     return;
@@ -215,6 +216,8 @@
                 
             }break;
             case UIGestureRecognizerStateChanged:{
+                
+                self.pageViewController.view.userInteractionEnabled = NO;
                 if (_holdIndexPath) {
                     
                     if (_dragView) {
@@ -369,6 +372,8 @@
                     
                     [self.dataSource collectionViewDidEndDragging:self];
                 }
+                
+                self.pageViewController.view.userInteractionEnabled = YES;
                 
             }break;
         }
