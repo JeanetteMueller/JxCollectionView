@@ -16,7 +16,7 @@
 @property (strong, nonatomic) Class layoutClass;
 @property (nonatomic, readwrite) NSInteger maximumItemCount;
 
-@property (strong, nonatomic) NSMutableArray *pages;
+@property (strong, nonatomic) NSCache *pages;
 
 @property (nonatomic, readwrite) NSInteger nextPage;
 
@@ -49,7 +49,7 @@
         self.layoutClass = layoutClass;
         self.maximumItemCount = itemCount;
         
-        self.pages = [NSMutableArray array];
+        self.pages = [[NSCache alloc] init];
         
         self.cellClasses = [NSMutableDictionary dictionary];
         self.cellNibs = [NSMutableDictionary dictionary];
@@ -383,8 +383,8 @@
 
 - (JxCollectionViewPage *)getPageForIndex:(NSInteger)index{
     
-    if (_pages.count > index && [_pages objectAtIndex:index]) {
-        return [_pages objectAtIndex:index];
+    if ([_pages objectForKey:[NSString stringWithFormat:@"page_%ld", (long)index]]) {
+        return [_pages objectForKey:[NSString stringWithFormat:@"page_%ld", (long)index]];
     }
     
     JxCollectionViewPage *vc = [[JxCollectionViewPage alloc] initWithCollectionViewLayout:[[_layoutClass alloc] init]];
@@ -402,7 +402,7 @@
         [vc.collectionView registerNib:[self.cellNibs objectForKey:key] forCellWithReuseIdentifier:key];
     }
     
-    [_pages addObject:vc];
+    [_pages setObject:vc forKey:[NSString stringWithFormat:@"page_%ld", (long)index]];
     
     return vc;
 }
