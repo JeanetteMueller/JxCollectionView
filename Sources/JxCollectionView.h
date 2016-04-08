@@ -18,15 +18,13 @@
 @property (nonatomic, unsafe_unretained) id<PagedCollectionViewControllerDataSource> dataSource;
 @property (nonatomic, unsafe_unretained) id<PagedCollectionViewControllerDelegate> delegate;
 
-@property (strong, nonatomic, readonly) UILongPressGestureRecognizer *longPressGesture;
-@property (strong, nonatomic, readonly) UITapGestureRecognizer *tapGesture;
-
 @property (strong, nonatomic) UIPageControl *pageControl;
 
-@property (nonatomic, readonly) NSInteger maximumItemCount;
+@property (strong, nonatomic, readonly) UILongPressGestureRecognizer *longPressGesture;
+@property (strong, nonatomic, readonly) UITapGestureRecognizer *tapGesture;
+@property (assign, nonatomic, readonly) NSInteger maximumItemCount;
 @property (strong, nonatomic, readonly) NSIndexPath *holdIndexPath;
-
-@property (nonatomic, readonly) BOOL editing;
+@property (assign, nonatomic, readonly) BOOL editing;
 
 - (id)initWithLayoutClass:(Class)layoutClass andItemCount:(NSInteger)itemCount;
 

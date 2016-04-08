@@ -14,27 +14,20 @@
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (strong, nonatomic) Class layoutClass;
-@property (nonatomic, readwrite) NSInteger maximumItemCount;
-
 @property (strong, nonatomic) NSCache *pages;
-
-@property (nonatomic, readwrite) NSInteger nextPage;
-
 @property (strong, nonatomic, readwrite) NSIndexPath *holdIndexPath;
-
-@property (nonatomic, readwrite) BOOL animating;
-@property (nonatomic, readwrite) BOOL allowPageJump;
-
 @property (strong, nonatomic) UIImageView *dragView;
-
 @property (strong, nonatomic) NSMutableDictionary *cellClasses;
 @property (strong, nonatomic) NSMutableDictionary *cellNibs;
-
 @property (strong, nonatomic, readwrite) UILongPressGestureRecognizer *longPressGesture;
 @property (strong, nonatomic, readwrite) UITapGestureRecognizer *tapGesture;
-@property (nonatomic, readwrite) BOOL editing;
-
 @property (strong, nonatomic) UIColor *hidden_backgroundColor;
+
+@property (assign, nonatomic, readwrite) NSInteger maximumItemCount;
+@property (assign, nonatomic) NSInteger nextPage;
+@property (assign, nonatomic) BOOL animating;
+@property (assign, nonatomic) BOOL allowPageJump;
+@property (assign, nonatomic, readwrite) BOOL editing;
 
 @end
 
