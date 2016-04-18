@@ -7,7 +7,7 @@ Außerdem wackeln die Elemente und bieten jeweils einen Button zum Löschen des 
 
 Das JxCollectionView verhällt sich von außen gesehen sehr ähnlich wie ein übliches UICollectionView, kommt allerdings mit ein paar zusätzlichen Delegates. 
 
-Im View Controller mitt das JxCollectionView angelegt werden. Hier muss das Layout und die maximale ANzahl an Elementen Pro Seite festgelegt werden
+Im View Controller mitt das JxCollectionView angelegt werden. Hier muss das Layout und die maximale Anzahl an Elementen Pro Seite festgelegt werden
 ```Objective-C
 self.pagedCollectionViewController = [[JxCollectionView alloc] initWithLayoutClass:[MyCollectionViewFlowLayout class] andItemCount:6];
 self.pagedCollectionViewController.dataSource = self;
