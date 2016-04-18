@@ -800,17 +800,12 @@
 }
 - (void)moveToPage:(NSInteger)index animated:(BOOL)animated withForce:(BOOL)force{
     
-    UIPageViewControllerNavigationDirection direction;
+    UIPageViewControllerNavigationDirection direction = UIPageViewControllerNavigationDirectionForward;
     
     if (self.pageControl.currentPage > index || force) {
         direction = UIPageViewControllerNavigationDirectionReverse;
-    }else if(self.pageControl.currentPage < index){
-        direction = UIPageViewControllerNavigationDirectionForward;
-    }else{
-//        if (self.pageViewController.viewControllers.count > 0) {
-//            return;
-//        }
     }
+    
     __weak __typeof(self)weakSelf = self;
     
     JxCollectionViewPage *newPage = [self getPageForIndex:index];
@@ -830,13 +825,8 @@
     CGSize imageSize = view.bounds.size;
     // Create a graphics context with the target size
     
-    // On iOS 4 and later, use UIGraphicsBeginImageContextWithOptions to take the scale into consideration
-    // On iOS prior to 4, fall back to use UIGraphicsBeginImageContext
-    if (NULL != &UIGraphicsBeginImageContextWithOptions){
-        UIGraphicsBeginImageContextWithOptions(imageSize, view.opaque, 0.0);
-    }else{
-        UIGraphicsBeginImageContext(imageSize);
-    }
+    UIGraphicsBeginImageContextWithOptions(imageSize, view.opaque, 0.0);
+    
     
     // Render the view into the current graphics context
     /* iOS 7 */
