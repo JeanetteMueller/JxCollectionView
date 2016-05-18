@@ -376,26 +376,29 @@
 
 - (JxCollectionViewPage *)getPageForIndex:(NSInteger)index{
     
-    if ([_pages objectForKey:[NSString stringWithFormat:@"page_%ld", (long)index]]) {
-        return [_pages objectForKey:[NSString stringWithFormat:@"page_%ld", (long)index]];
-    }
+    JxCollectionViewPage *vc;
     
-    JxCollectionViewPage *vc = [[JxCollectionViewPage alloc] initWithCollectionViewLayout:[[_layoutClass alloc] init]];
-    vc.delegate = self;
-    vc.sectionIndex = index;
-    vc.view.backgroundColor = self.hidden_backgroundColor;
-    vc.collectionView.backgroundColor = self.hidden_backgroundColor;
+    if ([_pages objectForKey:[NSString stringWithFormat:@"page_%ld", (long)index]]) {
+        vc = [_pages objectForKey:[NSString stringWithFormat:@"page_%ld", (long)index]];
+    }else{
+        vc = [[JxCollectionViewPage alloc] initWithCollectionViewLayout:[[_layoutClass alloc] init]];
+        
+        for (NSString *key in self.cellClasses) {
+            [vc.collectionView registerClass:[self.cellClasses objectForKey:key] forCellWithReuseIdentifier:key];
+        }
+        for (NSString *key in self.cellNibs) {
+            [vc.collectionView registerNib:[self.cellNibs objectForKey:key] forCellWithReuseIdentifier:key];
+        }
+        
+        [_pages setObject:vc forKey:[NSString stringWithFormat:@"page_%ld", (long)index]];
+        
+        vc.delegate = self;
+        vc.sectionIndex = index;
+        vc.view.backgroundColor = self.hidden_backgroundColor;
+        vc.collectionView.backgroundColor = self.hidden_backgroundColor;
+    }
     
     vc.editing = _editing;
-    
-    for (NSString *key in self.cellClasses) {
-        [vc.collectionView registerClass:[self.cellClasses objectForKey:key] forCellWithReuseIdentifier:key];
-    }
-    for (NSString *key in self.cellNibs) {
-        [vc.collectionView registerNib:[self.cellNibs objectForKey:key] forCellWithReuseIdentifier:key];
-    }
-    
-    [_pages setObject:vc forKey:[NSString stringWithFormat:@"page_%ld", (long)index]];
     
     return vc;
 }

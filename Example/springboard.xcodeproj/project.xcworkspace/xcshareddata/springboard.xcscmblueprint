@@ -1,17 +1,15 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "74563CF7710DE892CB0B9C8CE9CF713F1476038D",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "f10edb16-b8e6-0310-952f-8ec78df1de6a++6089",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
     "f10edb16-b8e6-0310-952f-8ec78df1de6a++6089" : {
 
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "74563CF7710DE892CB0B9C8CE9CF713F1476038D" : 0,
     "f10edb16-b8e6-0310-952f-8ec78df1de6a++6089" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F5DF9356-1D8E-4461-91AD-69861D0D86FA",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "74563CF7710DE892CB0B9C8CE9CF713F1476038D" : "JxCollectionView\/",
     "f10edb16-b8e6-0310-952f-8ec78df1de6a++6089" : "JxCollectionView\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "springboard",
@@ -21,7 +19,7 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/JeanetteMueller\/JxCollectionView",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "74563CF7710DE892CB0B9C8CE9CF713F1476038D"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "f10edb16-b8e6-0310-952f-8ec78df1de6a++6089"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/svn.abacus.ch\/repos\/abacus",
